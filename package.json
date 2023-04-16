@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prepare": "husky intall"
+    "prepare": "husky intall",
+    "cypress": "cypress open"
   },
   "dependencies": {
     "@tanstack/react-query": "^4.28.0",
@@ -28,6 +29,8 @@
     "typescript": "5.0.3"
   },
   "devDependencies": {
+    "@cypress/webpack-preprocessor": "^5.17.0",
+    "cypress": "^12.9.0",
     "eslint-config-prettier": "^8.8.0",
     "husky": "^8.0.3",
     "prettier": "^2.8.7"

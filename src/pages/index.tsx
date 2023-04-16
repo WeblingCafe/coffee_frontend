@@ -1,3 +1,19 @@
+import { useRouter } from 'next/router';
+
 export default function Main() {
-  return <div>test</div>;
+  const router = useRouter();
+
+  const handleChangeRouter = () => {
+    router.push('/home');
+  };
+
+  return (
+    <>
+      <div>test</div>
+      <button className="cypressTest" onClick={handleChangeRouter}>
+        {' '}
+        cypress{' '}
+      </button>
+    </>
+  );
 }
