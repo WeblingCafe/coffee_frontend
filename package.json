@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prepare": "husky intall"
+    "prepare": "husky intall",
+    "cypress": "cypress open"
   },
   "dependencies": {
     "@tanstack/react-query": "^4.28.0",
@@ -18,6 +19,7 @@
     "@types/react-query": "^1.2.9",
     "@types/recoil": "^0.0.9",
     "@types/styled-components": "^5.1.26",
+    "antd": "^5.4.2",
     "axios": "^1.3.5",
     "eslint-config-next": "13.3.0",
     "next": "13.3.0",
@@ -28,6 +30,8 @@
     "typescript": "5.0.3"
   },
   "devDependencies": {
+    "@cypress/webpack-preprocessor": "^5.17.0",
+    "cypress": "^12.9.0",
     "eslint-config-prettier": "^8.8.0",
     "husky": "^8.0.3",
     "prettier": "^2.8.7"
