@@ -8,6 +8,12 @@ import { TAB_LIST } from './constant';
 import { flex } from 'styles/flex';
 
 export default function SideBar() {
+
+  const handleLogout = () => {
+    alert('logout!');
+  }
+
+
   return (
     <Container>
       <Link href="/">
@@ -20,9 +26,12 @@ export default function SideBar() {
       </Link>
       <TabWrapper>
         {TAB_LIST.map(({ label, iconPath, path }, idx) => (
-          <Tab key={`label-${idx}`} label={label} path={path} iconPath={iconPath} />
+          <Tab key={`label-${idx}`} label={label} path={path} iconPath={iconPath} hasArrowIcon/>
         ))}
       </TabWrapper>
+      <LogoutBtnWrapper onClick={handleLogout}>
+        <Tab label="로그아웃" iconPath='ic-logout' hasArrowIcon={false} />
+      </LogoutBtnWrapper>
     </Container>
   );
 }
@@ -36,7 +45,7 @@ const Container = styled.div`
   bottom: 0%;
   width: 20%;
   min-height: 100vh;
-  padding: 80px 0;
+  padding: 33px 0;
   border: 1.12778px solid #eff0f6;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.05);
   border-radius: 0px 20px 20px 0px;
@@ -57,3 +66,9 @@ const LogoWrapper = styled.div`
 const TabWrapper = styled.div`
   margin-top: 50px;
 `;
+
+const LogoutBtnWrapper = styled.div`
+  position:absolute;
+  bottom: 0;
+
+`

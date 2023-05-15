@@ -2,19 +2,24 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
-import styled, { css } from 'styled-components';
-import { font } from 'styles/fonts';
-import { Path } from 'types/layout';
-import { flex } from 'styles/flex';
 import { useEffect, useState } from 'react';
+import styled, { css } from 'styled-components';
+
+
+import { font } from 'styles/fonts';
+import { flex } from 'styles/flex';
+
+import { Path } from 'types/layout';
+
 
 interface ITabProps {
   label: string;
-  path: Path;
+  path?: Path;
   iconPath: string;
+  hasArrowIcon: boolean;
 }
 
-export default function Tab({ label, iconPath, path }: ITabProps) {
+export default function Tab({ label, iconPath, path, hasArrowIcon }: ITabProps) {
   const { pathname } = useRouter();
   const [active, setActive] = useState(false);
 
@@ -28,13 +33,13 @@ export default function Tab({ label, iconPath, path }: ITabProps) {
 
   return (
     <TabContainer active={active}>
-      <Link href={path}>
+      <Link href={path? path: '/'}>
         <TabItem active={active}>
           <div>
           <Image src={`/icons/${iconPath}${active ? '-blue' : ''}.svg`} width={32} height={32} alt="tab-icon" />
           <span>{label}</span>
           </div>
-          <Image src={`/icons/ic-arrow-${active ? 'up' : 'down'}.svg`} width={12} height={12} alt="arrow-icon" />
+          {hasArrowIcon && <Image src={`/icons/ic-arrow-${active ? 'up' : 'down'}.svg`} width={12} height={12} alt="arrow-icon" />}
         </TabItem>
       </Link>
     </TabContainer>

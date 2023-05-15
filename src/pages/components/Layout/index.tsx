@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import SideBar from './SideBar';
-import { flex } from 'styles/flex';
 
 interface ILayoutProps {
   children: JSX.Element;
