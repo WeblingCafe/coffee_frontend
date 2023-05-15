@@ -18,7 +18,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         <ReactQueryDevtools initialIsOpen />
         <GlobalStyle />
         <RecoilRoot>
-          <Component {...pageProps} />
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
         </RecoilRoot>
       </Hydrate>
     </QueryClientProvider>
