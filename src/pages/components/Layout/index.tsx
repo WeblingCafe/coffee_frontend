@@ -1,12 +1,27 @@
 import styled from 'styled-components';
+import SideBar from './SideBar';
 
-export default function Layout() {
-    return (
-        <Test>this text is for testing Layout</Test>
-    )
+interface ILayoutProps {
+  children: JSX.Element;
 }
 
-const Test = styled.div`
-  width: 100px;
-  background-color: aqua;
-`
+export default function Layout({ children }: ILayoutProps) {
+  return (
+    <Container>
+      <SideBar />
+      <Wrap>{children}</Wrap>
+    </Container>
+  );
+}
+
+const Container = styled.div`
+  display: flex;
+  width: 100%;
+  height: 100%;
+`;
+
+const Wrap = styled.div`
+  position: relative;
+  left: 20%;
+  width: 80%;
+`;

@@ -20,6 +20,7 @@ const GlobalStyle = createGlobalStyle`
         font-size: 100%;
         font: inherit;
         vertical-align: baseline;
+        text-decoration: none;
     }
 /* HTML5 display-role reset for older browsers */
     article, aside, details, figcaption, figure,
@@ -33,7 +34,6 @@ const GlobalStyle = createGlobalStyle`
 
     body {
         line-height: 1;
-        background-image: url('/icons/icon-background.png');
         background-size: cover;
         overflow-x: hidden;
     }
@@ -65,7 +65,7 @@ const GlobalStyle = createGlobalStyle`
         height: 100vh;
         padding: 0;
         margin: 0;
-        font-family: 'NanumSquare', sans-serif;
+        font-family: 'Pretendard', sans-serif;
     };
 
     #root {
@@ -108,6 +108,25 @@ const GlobalStyle = createGlobalStyle`
         border-spacing: 0;
     }
 
+    a:visited{
+        text-decoration: none;
+    }
+
+    @font-face {
+        font-family: 'Pretendard';
+        src: url('/fonts/Pretendard-Regular.woff2') format('woff2'),
+            url('/fonts/Pretendard-Regular.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'Pretendard';
+        src: url('/fonts/Pretendard-Bold.woff2') format('woff2'),
+            url('/fonts/Pretendard-Bold.woff') format('woff');
+        font-weight: bold;
+        font-style: normal;
+    }
 `;
 
 export default GlobalStyle;
