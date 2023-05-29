@@ -6,7 +6,7 @@ import { Hydrate, QueryClient, QueryClientProvider } from '@tanstack/react-query
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 import GlobalStyle from 'styles/GlobalStyle';
-import Layout from './components/Layout';
+import Layout from '../components/Layout';
 import Head from 'next/head';
 
 function MyApp({ Component, pageProps }: AppProps) {

@@ -1,4 +1,4 @@
-import Input from 'pages/components/auth/Input';
+import Input from 'components/auth/Input';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import { useForm } from 'react-hook-form';
@@ -6,7 +6,6 @@ import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import useSignInMutation from 'hooks/queries/useSignInMutation';
 import { useEffect } from 'react';
-
 import { useAuth } from 'hooks/useAuth';
 
 export interface ISignInForm {
@@ -35,13 +34,13 @@ export default function SignIn() {
 
   useEffect(() => {
     if (isLogin) {
-      router.push('/home');
+      router.push('/');
     }
   }, [isLogin, router]);
 
   useEffect(() => {
     if (isSuccess) {
-      router.push('/home');
+      router.push('/');
     }
   }, [isSuccess, router]);
 

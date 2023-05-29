@@ -1,4 +1,4 @@
-import Input from 'pages/components/auth/Input';
+import Input from 'components/auth/Input';
 import styled from 'styled-components';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
