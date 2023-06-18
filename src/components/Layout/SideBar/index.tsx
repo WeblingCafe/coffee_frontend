@@ -25,8 +25,8 @@ export default function SideBar() {
         </LogoWrapper>
       </Link>
       <TabWrapper>
-        {TAB_LIST.map(({ label, iconPath, path }, idx) => (
-          <Tab key={`label-${idx}`} label={label} path={path} iconPath={iconPath} hasArrowIcon/>
+        {TAB_LIST.map(({ label, iconPath, path, subMenu }, idx) => (
+          <Tab key={`label-${idx}`} label={label} path={path} iconPath={iconPath} subMenu={subMenu} hasArrowIcon/>
         ))}
       </TabWrapper>
       <LogoutBtnWrapper onClick={handleLogout}>
