@@ -1,14 +1,21 @@
 import styled from 'styled-components';
 import { font } from 'styles/fonts';
-import MenuLayout from 'components/Menus/Layout';
 
-const Menu = () => {
+interface MenuLayoutProps {
+  children: React.ReactNode;
+}
+
+const MenuLayout = ({ children }: MenuLayoutProps) => {
   return (
-    <MenuLayout>
-      <div>메뉴</div>
-    </MenuLayout>
+    <Container>
+      <TabTitle>Menu</TabTitle>
+      <Divider />
+      {children}
+    </Container>
   );
 };
+
+export default MenuLayout;
 
 const Container = styled.div`
   width: 100%;
@@ -26,5 +33,3 @@ const Divider = styled.div`
   background: rgba(0, 0, 0, 0.1);
   height: 1px;
 `;
-
-export default Menu;

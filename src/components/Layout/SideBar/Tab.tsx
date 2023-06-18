@@ -49,15 +49,15 @@ export default function Tab({ label, iconPath, path, hasArrowIcon, subMenu }: IT
           )}
         </TabItem>
       </Link>
-      <SubTabItem>
+      <SubTabItems>
         {active &&
           subMenu &&
           subMenu.map((menu, idx) => (
-            <Link key={menu.index} href={menu.path}>
+            <SubTabItem key={menu.index} href={menu.path} active={pathname === menu.path}>
               {menu.name}
-            </Link>
+            </SubTabItem>
           ))}
-      </SubTabItem>
+      </SubTabItems>
     </TabContainer>
   );
 }
@@ -100,12 +100,17 @@ const TabItem = styled.div<IActive>`
   }
 `;
 
-const SubTabItem = styled.div`
+const SubTabItems = styled.div`
   ${flex('space-between', '', 'column')}
   gap: 16px;
   padding: 16px 0 16px 54px;
-  a {
-    ${font(16, 500, 16)}
-    color: #828897;
-  }
+  // a {
+  //   ${font(16, 500, 16)}
+  //   color: #828897;
+  // }
+`;
+
+const SubTabItem = styled(Link)<IActive>`
+  ${font(16, 500, 16)};
+  color: ${props => (props.active ? '#3392ff' : '#828897')};
 `;
