@@ -1,5 +1,6 @@
 import type { AppProps } from 'next/app';
 // import { SessionProvider } from 'next-auth/react';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { RecoilRoot } from 'recoil';
 import { Hydrate, QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -11,6 +12,7 @@ import Head from 'next/head';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const queryClient = new QueryClient();
+  const router = useRouter();
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -18,9 +20,13 @@ function MyApp({ Component, pageProps }: AppProps) {
         <ReactQueryDevtools initialIsOpen />
         <GlobalStyle />
         <RecoilRoot>
-          <Layout>
+          {!router.pathname.includes('auth') ? (
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          ) : (
             <Component {...pageProps} />
-          </Layout>
+          )}
         </RecoilRoot>
       </Hydrate>
     </QueryClientProvider>

@@ -26,8 +26,8 @@ export default function Tab({ label, iconPath, path, hasArrowIcon, subMenu }: IT
   const { pathname } = useRouter();
   const [active, setActive] = useState(false);
 
-  console.log('pathname', pathname);
-  console.log('router', useRouter());
+  // console.log('pathname', pathname);
+  // console.log('router', useRouter());
   useEffect(() => {
     if (pathname.includes(path)) {
       setActive(true);
