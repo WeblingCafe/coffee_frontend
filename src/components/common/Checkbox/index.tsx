@@ -18,7 +18,8 @@ interface ICheckBox {
 const CheckBoxContainer = styled.div<ICheckBox>`
   width: 18px;
   height: 18px;
-  border-radius: 3px;
+  margin-right: 16px;
+  border-radius: 10px;
   border: 1px solid #c0c0c0;
   background-color: white;
   cursor: pointer;
@@ -33,7 +34,9 @@ const CheckBoxContainer = styled.div<ICheckBox>`
   ${({ header }) =>
     header &&
     css`
-      border-color: white;
-      background-color: #15aedb;
+      // border-color: white;
+      background-color: white;
+
+      // background-color: #15aedb;
     `}
 `;

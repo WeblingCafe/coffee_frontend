@@ -1,16 +1,24 @@
 import { useRecoilState } from 'recoil';
-import { loginStateAtom } from 'store/atoms';
+import { loginStateAtom, getHeadersAtom } from 'store/atoms';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
 export const useAuth = () => {
   const [isLogin, setIsLogin] = useRecoilState(loginStateAtom);
+  const [headers, setHeaders] = useRecoilState(getHeadersAtom);
   const router = useRouter();
 
   useEffect(() => {
     const hasToken = localStorage.getItem('access_token');
-    setIsLogin(hasToken ? true : false);
-  }, [setIsLogin]);
+    if (hasToken) {
+      setIsLogin(true);
+      setHeaders(hasToken);
+    } else {
+      setIsLogin(false);
+    }
+
+    // setIsLogin(hasToken ? true : false);
+  }, [setIsLogin, setHeaders]);
 
   useEffect(() => {
     if (!isLogin && router.asPath.includes('/auth/')) {
@@ -22,5 +30,5 @@ export const useAuth = () => {
     }
   }, [isLogin, router]);
 
-  return { isLogin };
+  return { isLogin, headers };
 };

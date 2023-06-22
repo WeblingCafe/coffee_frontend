@@ -6,15 +6,13 @@ import { ORDER_HEADER_LIST } from 'pages/orders/constant';
 import { flex } from 'styles/flex';
 import { font } from 'styles/fonts';
 import { fitImg } from 'styles/mixins';
-import CheckBox from 'pages/components/Checkbox';
+import CheckBox from 'components/common/Checkbox';
 import { useState } from 'react';
-
 
 function TableHeader() {
   const [headerList, setHeaderList] = useState(ORDER_HEADER_LIST);
 
   const handleAllCheckBoxesClick = () => {};
-
 
   return (
     <Wrapper>
@@ -40,9 +38,9 @@ const Wrapper = styled.ul`
   top: 0;
   width: 100%;
   padding: 17px 19px;
-  background-color: #FCFCFC;
+  background-color: #fcfcfc;
   color: #424242;
-  border : 1px solid #F4F5F7;
+  border: 1px solid #f4f5f7;
 
   li:nth-child(1) {
     flex: 1.5;
@@ -85,5 +83,3 @@ const Item = styled.li`
   ${flex('center', 'center')};
   position: relative;
 `;
-
-

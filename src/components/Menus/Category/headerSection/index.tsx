@@ -3,6 +3,9 @@ import { flex } from 'styles/flex';
 import CategoryTitle from './categoryTitle';
 import ButtonBox from './buttonBox';
 
+
+
+
 const CategoryHeaderSection = () => {
   return (
     <HeaderSectionWrapper>
