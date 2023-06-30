@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 import { flex } from 'styles/flex';
+import Button from 'components/common/Button';
 
 const ButtonBox = () => {
   return (
     <ButtonBoxWrapper>
-      <button>1</button>
-      <button>2</button>
+      <Button contents="삭제" />
+      <Button contents="카테고리 추가" backgroundColor="#1582FF" />
     </ButtonBoxWrapper>
   );
 };

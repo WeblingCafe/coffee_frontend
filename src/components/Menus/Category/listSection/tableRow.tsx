@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { flex } from 'styles/flex';
 import { font } from 'styles/fonts';
 import CheckBox from 'components/common/Checkbox';
@@ -8,17 +8,24 @@ interface RowProps {
     categoryId: number;
     categoryName: string;
   }[];
+  handleClick?: (index: number) => void;
+  selectedIndexes: Array<Number>;
 }
 
-export default function TableRow(data: RowProps) {
-  console.log(typeof data, data.data);
+export default function TableRow({ data, handleClick, selectedIndexes }: RowProps) {
+  // console.log('===data', data);
   return (
     <Wrapper>
-      {data.data &&
-        data.data?.map(el => (
-          <Row>
-            <CheckBox />
-            <Item key={el.categoryId}>{el.categoryName}</Item>
+      {data &&
+        data?.map(el => (
+          <Row key={el.categoryId}>
+            <CheckBox
+              active={selectedIndexes.includes(el.categoryId)}
+              onClick={() => {
+                handleClick(el.categoryId);
+              }}
+            />
+            <Item>{el.categoryName}</Item>
           </Row>
         ))}
     </Wrapper>
@@ -31,6 +38,16 @@ const Row = styled.ul`
   ${flex('', 'center')};
   ${font(12, 400, 24)};
   padding: 10px 20px;
+`;
+
+const CheckBoxContainer = styled.div`
+  width: 18px;
+  height: 18px;
+  margin-right: 16px;
+  border-radius: 10px;
+  border: 1px solid #c0c0c0;
+  background-color: white;
+  cursor: pointer;
 `;
 
 const Item = styled.li`

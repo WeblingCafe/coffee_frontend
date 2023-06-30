@@ -1,13 +1,27 @@
 import styled, { css } from 'styled-components';
 
 interface ICheckbox {
+  id: string;
+  name: string;
   header?: boolean;
   active?: boolean;
   onClick?: () => void;
 }
 
-export default function CheckBox({ active, header, onClick }: ICheckbox) {
-  return <CheckBoxContainer active={active} header={header} onClick={onClick} />;
+export default function CheckBox({ id, name, active, header, onClick }: ICheckbox) {
+  return (
+    <>
+      <CheckBoxContainer
+        id={id}
+        type="checkbox"
+        name={name}
+        checked={active}
+        header={header}
+        onClick={() => onClick()}
+      />
+      <label htmlFor={name} />
+    </>
+  );
 }
 
 interface ICheckBox {
@@ -15,7 +29,7 @@ interface ICheckBox {
   active?: boolean;
 }
 
-const CheckBoxContainer = styled.div<ICheckBox>`
+const CheckBoxContainer = styled.input<ICheckBox>`
   width: 18px;
   height: 18px;
   margin-right: 16px;

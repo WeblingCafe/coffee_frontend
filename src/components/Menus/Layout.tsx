@@ -10,7 +10,7 @@ const MenuLayout = ({ children }: MenuLayoutProps) => {
     <Container>
       <TabTitle>Menu</TabTitle>
       <Divider />
-      {children}
+      <Box>{children}</Box>
     </Container>
   );
 };
@@ -32,4 +32,9 @@ const Divider = styled.div`
   margin: 38px 0 35px;
   background: rgba(0, 0, 0, 0.1);
   height: 1px;
+`;
+
+const Box = styled.div`
+  border: 1px solid #eff0f6;
+  border-radius: 14px;
 `;

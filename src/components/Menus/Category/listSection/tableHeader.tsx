@@ -3,11 +3,16 @@ import { flex } from 'styles/flex';
 import { font } from 'styles/fonts';
 import CheckBox from 'components/common/Checkbox';
 
-export default function TableHeader() {
+interface TableHeaderProps {
+  checked?: boolean;
+  handleClick: () => void;
+}
+
+export default function TableHeader({ handleClick, checked }: TableHeaderProps) {
   return (
     <Wrapper>
       <Item>
-        <CheckBox header></CheckBox>
+        <CheckBox header onClick={handleClick} active={checked}></CheckBox>
       </Item>
       <Item>카테고리명</Item>
     </Wrapper>

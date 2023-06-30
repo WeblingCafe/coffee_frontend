@@ -1,5 +1,5 @@
 import { useRecoilState } from 'recoil';
-import { loginStateAtom, getHeadersAtom } from 'store/atoms';
+import { loginStateAtom, getHeadersAtom } from 'store/auth/atoms';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 

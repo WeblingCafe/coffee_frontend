@@ -3,14 +3,16 @@ import { flex } from 'styles/flex';
 import CategoryTitle from './categoryTitle';
 import ButtonBox from './buttonBox';
 
+interface CategoryHeaderSectionProps {
+  categoryNum: number;
+}
 
+const CategoryHeaderSection = (props: CategoryHeaderSectionProps) => {
+  const { categoryNum } = props;
 
-
-const CategoryHeaderSection = () => {
   return (
     <HeaderSectionWrapper>
-      {/* 타이틀에 카테고리 개수 내리기 */}
-      <CategoryTitle></CategoryTitle>
+      <CategoryTitle categoryNum={categoryNum}></CategoryTitle>
       <ButtonBox />
     </HeaderSectionWrapper>
   );
@@ -18,6 +20,7 @@ const CategoryHeaderSection = () => {
 
 const HeaderSectionWrapper = styled.div`
   ${flex('space-between', 'flex-start')}
+  padding: 24px 22px;
 `;
 
 export default CategoryHeaderSection;
