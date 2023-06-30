@@ -17,6 +17,7 @@ export default function useFetchCategoryList() {
   };
 
   return useQuery({
+    queryKey: ['categoryList'],
     queryFn: () => fetchCategoryList(),
     onError: (error: any) => {
       toast.error(error.response.data.message);

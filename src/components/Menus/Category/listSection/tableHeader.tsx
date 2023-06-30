@@ -5,7 +5,7 @@ import CheckBox from 'components/common/Checkbox';
 
 interface TableHeaderProps {
   checked?: boolean;
-  handleClick: () => void;
+  handleClick?: () => void;
 }
 
 export default function TableHeader({ handleClick, checked }: TableHeaderProps) {
