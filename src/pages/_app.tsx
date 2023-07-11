@@ -1,4 +1,4 @@
-import type { AppProps } from 'next/app';
+import type { AppProps,  } from 'next/app';
 // import { SessionProvider } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
@@ -13,6 +13,8 @@ import Head from 'next/head';
 function MyApp({ Component, pageProps }: AppProps) {
   const queryClient = new QueryClient();
   const router = useRouter();
+
+
 
   return (
     <QueryClientProvider client={queryClient}>

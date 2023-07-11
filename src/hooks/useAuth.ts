@@ -24,10 +24,10 @@ export const useAuth = () => {
     if (!isLogin && router.asPath.includes('/auth/')) {
       return;
     }
-    if (!isLogin) {
-      router.replace('/auth/signin');
-      return;
-    }
+    // if (!isLogin) {
+    //   router.replace('/auth/signin');
+    //   return;
+    // }
   }, [isLogin, router]);
 
   return { isLogin, headers };

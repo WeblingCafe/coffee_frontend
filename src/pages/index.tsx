@@ -7,16 +7,17 @@ import { Card, Space } from 'antd';
 
 export default function Home() {
   const { isLogin } = useAuth();
+
   const router = useRouter();
 
-  console.log('===router', router);
-  console.log('isLogin', isLogin);
-
   useEffect(() => {
+    // 화면 깜빡이는 증상 관련 예외처리
+    const hasToken = localStorage.getItem('access_token');
+    if (hasToken) return;
     if (!isLogin) {
       router.push('/auth/signin');
     }
-  }, [isLogin]);
+  }, [isLogin, router]);
 
   return (
     <>
