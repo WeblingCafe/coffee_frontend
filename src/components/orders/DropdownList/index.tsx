@@ -9,7 +9,7 @@ interface IDropDownListProps {
   title: string;
   count: number;
   initialValue?: boolean;
-  children: JSX.Element;
+  children?: JSX.Element;
 }
 
 export default function DropDownList({ title, count, initialValue = true, children }: IDropDownListProps) {
@@ -24,7 +24,7 @@ export default function DropDownList({ title, count, initialValue = true, childr
       {isOpen ? (
         <OpenedContainer toggleList={toggleList} title={title} count={count}>
           {children}
-        </OpenedContainer> 
+        </OpenedContainer>
       ) : (
         <ClosedContainer toggleList={toggleList} title={title} count={count} />
       )}
@@ -33,7 +33,7 @@ export default function DropDownList({ title, count, initialValue = true, childr
 }
 
 const Container = styled.div`
-${font(18, 700, 16.8)}  
-color: #2F2F2F;
-margin-bottom: 16px;
+  ${font(18, 700, 16.8)}
+  color: #2F2F2F;
+  margin-bottom: 16px;
 `;

@@ -7,7 +7,7 @@ export interface MutateCategoryProps {
 }
 
 export default function useCategoryMutate() {
-  const { headers } = useAuth;
+  const { headers } = useAuth();
   const url = '/v1/categories';
 
   const MutateCategory = async (categoryName: MutateCategoryProps) => {

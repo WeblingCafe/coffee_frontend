@@ -13,5 +13,4 @@ export interface IOrderList {
     cancel?: boolean;
     call?: boolean;
 }
-  
 

@@ -9,18 +9,18 @@ export interface FetchCategoryProps {
 }
 
 export default function useFetchCategoryList() {
-  const { headers } = useAuth;
+  const { headers } = useAuth();
   const url = '/v1/categories';
   const fetchCategoryList = async () => {
     const response = await axiosClient.get<CafeResponse<FetchCategoryProps>>(url, { headers });
-    return response.data.responseObject;
+    return response.data?.responseObject;
   };
 
   return useQuery({
     queryKey: ['categoryList'],
     queryFn: () => fetchCategoryList(),
     onError: (error: any) => {
-      toast.error(error.response.data.message);
+      toast.error(error.response?.data?.message);
     },
   });
 }

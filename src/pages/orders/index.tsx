@@ -1,11 +1,11 @@
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
 
-import { font } from 'styles/fonts';
-import { flex } from 'styles/flex';
+import { font } from '@styles/fonts';
+import { flex } from '@styles/flex';
 
-import PickUpCompleteList from './components/PickUpCompleteList';
-import OrderList from './components/OrderList';
+import PickUpCompleteList from '../../components/orders/PickUpCompleteList';
+import OrderList from '../../components/orders/OrderList';
 
 export default function Order() {
   const router = useRouter();

@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
-import MenuLayout from 'components/Menus/Layout';
-import CategoryHeaderSection from 'components/Menus/Category/headerSection';
-import { useAuth } from 'hooks/useAuth';
-import useFetchCategoryList from 'hooks/queries/useFetchCategoryList';
-import Table from 'components/Menus/Category/listSection';
+import MenuLayout from '@components/Menus/Layout';
+import CategoryHeaderSection from '@components/Menus/Category/headerSection';
+import { useAuth } from '@hooks/useAuth';
+import useFetchCategoryList from '@hooks/queries/useFetchCategoryList';
+import Table from '@components/Menus/Category/listSection';
 import { useRecoilState } from 'recoil';
-import selectedIndexesState from 'store/category/atoms';
+import selectedIndexesState from '@store/category/atoms';
 
 const Category = () => {
   const { headers } = useAuth();
@@ -21,7 +21,7 @@ const Category = () => {
   };
 
   const handleItemAllClick = () => {
-    const selectedAllIndex = data.map(el => el.categoryId);
+    const selectedAllIndex = data?.map(el => el.categoryId);
     if (JSON.stringify(selectedIndexes) === JSON.stringify(selectedAllIndex)) {
       setSelectedIndexes([]);
     } else {
@@ -29,9 +29,7 @@ const Category = () => {
     }
   };
 
-  const handleAddCategory = () => {
-    
-  }
+  const handleAddCategory = () => {};
 
   return (
     <MenuLayout>

@@ -22,6 +22,10 @@ const GlobalStyle = createGlobalStyle`
         vertical-align: baseline;
         text-decoration: none;
     }
+    html {
+        /* rem으로 사용을 위한 폰트 사이즈 비율로 맞추기*/
+        font-size: 62.5%;
+    }
 /* HTML5 display-role reset for older browsers */
     article, aside, details, figcaption, figure,
     footer, header, hgroup, main, menu, nav, section {
