@@ -10,6 +10,7 @@ const color = {
   gray: '#1F2937',
   placeholderGray: '#6D7280',
   black: '#111827',
+  border: '#E5E7EB',
 };
 
 const font = {
