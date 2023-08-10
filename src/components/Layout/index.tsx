@@ -24,4 +24,5 @@ const Wrap = styled.div`
   position: relative;
   left: 20%;
   width: 80%;
+  padding: 0 40px;
 `;
