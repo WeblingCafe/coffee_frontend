@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Layout from '../components/Layout';
-import Input from '@src/components/common/atom/Input';
-import InputWithIcon from '@src/components/common/atom/InputWithIcon';
+import Input from '@src/components/common/atoms/Input';
+import { RegistrationForm } from '@src/components/common/organism/RegisterForm';
 
-import { useAuth } from 'hooks/useAuth';
+import { useAuth } from '@hooks/useAuth';
 import { Card, Space } from 'antd';
 
 export default function Home() {
@@ -27,6 +27,7 @@ export default function Home() {
         <>
           <Input id="test1" name="test1" placeHolder="리나테스트1" />
           <Input id="test2" name="test2" placeHolder="리나테스트2" styleType="search" />
+          <RegistrationForm />
         </>
       </Layout>
     </>

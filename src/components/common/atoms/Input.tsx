@@ -2,7 +2,7 @@ import { FC, forwardRef } from 'react';
 import styled, { css } from 'styled-components';
 import { BoxTypeProps } from '@src/types/theme';
 
-interface InputProps extends BoxTypeProps {
+export interface InputProps extends BoxTypeProps {
   id?: string;
   name?: string;
   placeHolder?: string;
@@ -32,12 +32,12 @@ const InputWrapper = styled.input<InputProps>`
 // eslint-disable-next-line react/display-name
 const Input: FC<InputProps> = forwardRef<HTMLInputElement, InputProps>(
   ({ width = 'lg', height = 'md', id, name, placeHolder, styleType = 'normal', ...props }, ref) => {
-    console.log('styleType', styleType);
+    console.log('props', props);
     return (
       <InputWrapper
         width={width}
         height={height}
-        placeholder={placeHolder}
+        // placeholder={placeHolder}
         type="text"
         id={id}
         styleType={styleType}
