@@ -24,8 +24,10 @@ export default function Home() {
   return (
     <>
       <Layout>
-        <Input />
-        <InputWithIcon />
+        <>
+          <Input id="test1" name="test1" placeHolder="리나테스트1" />
+          <Input id="test2" name="test2" placeHolder="리나테스트2" styleType="search" />
+        </>
       </Layout>
     </>
   );
