@@ -32,7 +32,6 @@ const InputWrapper = styled.input<InputProps>`
 // eslint-disable-next-line react/display-name
 const Input: FC<InputProps> = forwardRef<HTMLInputElement, InputProps>(
   ({ width = 'lg', height = 'md', id, name, placeHolder, styleType = 'normal', ...props }, ref) => {
-    console.log('props', props);
     return (
       <InputWrapper
         width={width}

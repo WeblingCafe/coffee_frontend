@@ -1,38 +1,71 @@
 import React from 'react';
-
-import { RegisterOptions, DeepMap, FieldError, UseFormRegister, Path } from 'react-hook-form';
+import styled, { css } from 'styled-components';
+import { FieldValues, FieldError, UseFormRegister } from 'react-hook-form';
+import Input from '../atoms/Input';
+import { BoxTypeProps } from '@src/types/theme';
 import { ErrorMessage } from '@hookform/error-message';
-import Input, { InputProps } from '@components/common/atoms/Input';
-import { FormErrorMessage } from '@components/common/atoms/FormErrorMessage';
+import { FormErrorMessage } from '../atoms/FormErrorMessage';
 
-export type FormInputProps<TFormValues> = {
-  name: Path<TFormValues>;
-  rules?: RegisterOptions;
-  register?: UseFormRegister<TFormValues>;
-  errors?: Partial<DeepMap<TFormValues, FieldError>>;
-} & Omit<InputProps, 'name'>;
+interface InputProps extends InputStyleProps {
+  name: string;
+  label: string;
+  register: UseFormRegister<any>;
+  errors: any;
+}
 
-export const FormInput = <TFormValues extends Record<string, unknown>>({
+export interface InputStyleProps extends BoxTypeProps {
+  styleType?: 'normal' | 'search';
+}
+
+const InputWrapper = styled.input<InputProps>`
+  width: ${({ theme, width }) => theme.box.width[width]};
+  height: ${({ theme, height }) => theme.box.height[height]};
+  padding: 8px;
+  border: ${({ theme }) => `1px solid ${theme.color.border}`};
+  border-radius: 8px;
+
+  ${({ styleType }) =>
+    styleType === 'search' &&
+    css`
+      background-image: url('/icons/search_icon.svg');
+      background-repeat: no-repeat;
+      background-size: 18px;
+      background-position: 97% 50%;
+    `}
+  &:focus {
+    border: ${({ theme }) => `1px solid ${theme.color.blue}`};
+  }
+`;
+
+const FormInput: React.FC<InputProps> = ({
   name,
+  label,
   register,
-  rules,
   errors,
-  ...props
-}: FormInputProps<TFormValues>): JSX.Element => {
-  // If the name is in a FieldArray, it will be 'fields.index.fieldName' and errors[name] won't return anything, so we are using lodash get
-  console.log('errors', errors);
-
-  const hasError = !!errors;
-
+  styleType = 'normal',
+  width = 'lg',
+  height = 'md',
+}) => {
   return (
-    <div aria-live="polite">
-      <Input name={name} aria-invalid={hasError} {...props} {...(register && register(name, rules))} />
+    <div>
+      <label htmlFor={name}>{label}</label>
+      <InputWrapper
+        id={name}
+        {...register(name, {
+          // 해당 내용 props로 만들어주기
+          required: 'This is required.',
+        })}
+        styleType={styleType}
+        width={width}
+        height={height}
+      />
       <ErrorMessage
         errors={errors}
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        name={name as any}
+        name={name}
         render={({ message }) => <FormErrorMessage>{message}</FormErrorMessage>}
       />
     </div>
   );
 };
+
+export default FormInput;
