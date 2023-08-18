@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { useForm, SubmitHandler } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import Dropdown, { Option } from '../atoms/Dropdown';
 
 type FormData = {
@@ -11,9 +11,11 @@ export const DropdownMolecule: FC = () => {
   const {
     register,
     handleSubmit,
+    control,
     formState: { errors },
   } = useForm<FormData>();
 
+  // 예시
   const genderOptions: Option[] = [
     { value: 'male', label: 'Male' },
     { value: 'female', label: 'Female' },
@@ -32,8 +34,8 @@ export const DropdownMolecule: FC = () => {
 
   return (
     <form onSubmit={onSubmit}>
-      <Dropdown name="gender" label="Gender" options={genderOptions} register={register} />
-      <Dropdown name="country" label="Country" options={countryOptions} register={register} />
+      <Dropdown name="gender" label="Gender" options={genderOptions} control={control} />
+      <Dropdown name="country" label="Country" options={countryOptions} control={control} />
 
       <button type="submit">Submit</button>
     </form>
