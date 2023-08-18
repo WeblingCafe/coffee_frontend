@@ -5,10 +5,10 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 
-import { font } from 'styles/fonts';
-import { flex } from 'styles/flex';
+import { font } from '@styles/fonts';
+import { flex } from '@styles/flex';
 
-import { Path } from 'types/layout';
+import { Path } from '../../../types/layout';
 
 interface ITabProps {
   label: string;

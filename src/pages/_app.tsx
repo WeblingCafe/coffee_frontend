@@ -17,21 +17,21 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Hydrate state={pageProps.dehydratedState}>
-        <ReactQueryDevtools initialIsOpen />
-        <ThemeProvider theme={theme}>
-          <GlobalStyle />
-          <RecoilRoot>
-            {!router.pathname.includes('auth') ? (
-              <Layout>
-                <Component {...pageProps} />
-              </Layout>
-            ) : (
-              <Component {...pageProps} />
-            )}
-          </RecoilRoot>
-        </ThemeProvider>
-      </Hydrate>
+      {/* <Hydrate state={pageProps.dehydratedState}> */}
+      <ReactQueryDevtools initialIsOpen />
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        {/* <RecoilRoot> */}
+        {/* {!router.pathname.includes('auth') ? ( */}
+        {/* <Layout> */}
+        {/* <Component {...pageProps} /> */}
+        {/* </Layout> */}
+        {/* ) : ( */}
+        <Component {...pageProps} />
+        {/* )} */}
+        {/* </RecoilRoot> */}
+      </ThemeProvider>
+      {/* </Hydrate> */}
     </QueryClientProvider>
   );
 }

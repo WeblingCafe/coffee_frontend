@@ -5,14 +5,12 @@ import styled from 'styled-components';
 import Tab from './Tab';
 
 import { TAB_LIST } from './constant';
-import { flex } from 'styles/flex';
+import { flex } from '@styles/flex';
 
 export default function SideBar() {
-
   const handleLogout = () => {
     alert('logout!');
-  }
-
+  };
 
   return (
     <Container>
@@ -26,11 +24,11 @@ export default function SideBar() {
       </Link>
       <TabWrapper>
         {TAB_LIST.map(({ label, iconPath, path, subMenu }, idx) => (
-          <Tab key={`label-${idx}`} label={label} path={path} iconPath={iconPath} subMenu={subMenu} hasArrowIcon/>
+          <Tab key={`label-${idx}`} label={label} path={path} iconPath={iconPath} subMenu={subMenu} hasArrowIcon />
         ))}
       </TabWrapper>
       <LogoutBtnWrapper onClick={handleLogout}>
-        <Tab label="로그아웃" iconPath='ic-logout' hasArrowIcon={false} />
+        <Tab label="로그아웃" iconPath="ic-logout" hasArrowIcon={false} />
       </LogoutBtnWrapper>
     </Container>
   );
@@ -68,7 +66,6 @@ const TabWrapper = styled.div`
 `;
 
 const LogoutBtnWrapper = styled.div`
-  position:absolute;
+  position: absolute;
   bottom: 0;
-
-`
+`;
