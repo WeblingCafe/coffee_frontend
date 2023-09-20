@@ -5,6 +5,7 @@ import Input from '@src/components/common/atoms/Input';
 import RegistrationForm from '@src/components/common/organisms/RegisterForm';
 import { DropdownMolecule } from '@src/components/common/molecules/DropdownMolecule';
 import { useAuth } from '@hooks/useAuth';
+import { useSession } from 'next-auth/react';
 import { Card, Space } from 'antd';
 
 export default function Home() {
@@ -20,6 +21,8 @@ export default function Home() {
   //     router.push('/auth/signin');
   //   }
   // }, [isLogin, router]);
+  const { data } = useSession();
+  console.log('userData', data);
 
   return (
     <>

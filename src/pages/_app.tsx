@@ -1,4 +1,7 @@
 import type { AppProps } from 'next/app';
+import { SessionProvider } from 'next-auth/react';
+import type { Session } from 'next-auth';
+
 // import { SessionProvider } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
@@ -11,28 +14,21 @@ import GlobalStyle from '@styles/GlobalStyle';
 import Layout from '@components/Layout';
 import Head from 'next/head';
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps<{ session: Session }>) {
   const queryClient = new QueryClient();
   const router = useRouter();
 
   return (
-    <QueryClientProvider client={queryClient}>
-      {/* <Hydrate state={pageProps.dehydratedState}> */}
-      <ReactQueryDevtools initialIsOpen />
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        {/* <RecoilRoot> */}
-        {/* {!router.pathname.includes('auth') ? ( */}
-        {/* <Layout> */}
-        {/* <Component {...pageProps} /> */}
-        {/* </Layout> */}
-        {/* ) : ( */}
-        <Component {...pageProps} />
-        {/* )} */}
-        {/* </RecoilRoot> */}
-      </ThemeProvider>
-      {/* </Hydrate> */}
-    </QueryClientProvider>
+    <SessionProvider session={session}>
+      <QueryClientProvider client={queryClient}>
+        {/* <Hydrate state={pageProps.dehydratedState}> */}
+        <ReactQueryDevtools initialIsOpen />
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </QueryClientProvider>
+    </SessionProvider>
   );
 }
 
